@@ -6,3 +6,9 @@ node_modules/
 ~$*
 .next/
 *.tsbuildinfo
+report/storymakers_report.pdf
+report/*.aux
+report/*.log
+report/*.out
+report/*.toc
+report/*.ent
