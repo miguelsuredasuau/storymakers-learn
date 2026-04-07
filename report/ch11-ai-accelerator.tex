@@ -1,0 +1,216 @@
+% ============================================================================
+% CHAPTER 11 — How AI Changes Everything About This Process (And What It Can't Do)
+% Storymakers Method Report
+% ============================================================================
+
+\section{How AI Changes Everything About This Process (And What It Can't Do)}
+
+\pullquote{AI is the most powerful brainstorming partner you have ever had. It is also the most dangerous editor. Know which role to assign it, and when to override it.}{Storymakers Method}
+
+\sourcefig{infographics/ch11-ai-accelerator.jpg}{AI as accelerator: where LLMs multiply productivity in the Storymakers process, and the 20\% of human judgment that determines whether a presentation succeeds or fails.}
+
+\subsection{The acceleration thesis}
+
+Large language models have fundamentally changed the economics of the Storymakers process. Tasks that once consumed hours---drafting SCQA alternatives, generating pillar candidates, testing counterarguments, writing action titles---now take minutes. A single practitioner with an LLM can produce the volume of ideation that previously required a workshop of five people and a whiteboard.\endnote{Brynjolfsson, Erik, Li, Danielle, and Raymond, Lindsey R., ``Generative AI at Work,'' NBER Working Paper No.\ 31161, 2023. The study found that access to a generative AI assistant increased worker productivity by 14\% on average, with the largest gains (34\%) among less experienced workers.}
+
+But acceleration without judgment produces more output, not better output. The purpose of this chapter is to define precisely where AI accelerates the 10-step process, where it introduces risk, and where it must be overridden by human judgment.
+
+\begin{thesisbox}[The 80/20 Rule for AI in Presentations]
+AI can perform approximately 80\% of the generative and analytical work in the Storymakers process: drafting, structuring, testing, formatting, and iterating. The remaining 20\%---audience judgment, emphasis decisions, emotional calibration, and political awareness---is exclusively human. That 20\% determines whether the presentation succeeds or fails.
+\end{thesisbox}
+
+% ============================================================================
+\subsection{AI in Phase 0: The Launchpad}
+
+Phase 0 is where AI delivers its greatest value. The Launchpad requires divergent thinking---generating many options before converging on the best one. LLMs are exceptional divergent thinkers.\endnote{Dell'Acqua, Fabrizio et al., ``Navigating the Jagged Technological Frontier: Field Experimental Evidence of the Effects of AI on Knowledge Worker Productivity and Quality,'' Harvard Business School Working Paper 24-013, 2023. The study found that AI was most effective on ``inside the frontier'' tasks requiring ideation and synthesis, and least effective on tasks requiring nuanced judgment.}
+
+\subsubsection{SCQA generation}
+
+An LLM can generate 10--15 SCQA variants in under two minutes from a brief topic description. The practitioner's job shifts from \emph{writing} the SCQA to \emph{selecting} the best one from a set of candidates and then refining it.
+
+\begin{keybox}[AI PROMPT: SCQA GENERATION]
+\texttt{I'm preparing a presentation for [audience] about [topic]. Generate 8 SCQA frameworks (Situation, Complication, Question, Answer). The Situation should be something the audience already accepts. The Complication should create genuine tension. The Answer should be specific and actionable. For each variant, make the Complication progressively bolder.}
+\end{keybox}
+
+The critical human judgment: which SCQA resonates with \emph{this specific audience}? An LLM does not know that the CFO in the room lost \$3 million on a failed AI project last year, or that the board has already rejected two digital-transformation proposals. The human knows. That knowledge determines which SCQA to select.
+
+\subsubsection{Pillar ideation}
+
+LLMs excel at generating MECE pillar candidates because MECE decomposition is a well-documented pattern in their training data. Ask for ``5 MECE ways to decompose [argument]'' and the model will produce a usable starting set.\endnote{The MECE principle is extensively documented in consulting literature that forms a significant part of LLM training corpora. See Rasiel, Ethan M., \emph{The McKinsey Way}, McGraw-Hill, 1999, and Chevallier, Arnaud, \emph{Strategic Thinking in Complex Problem Solving}, Oxford University Press, 2016.}
+
+\begin{alertbox}[THE MECE TRAP]
+LLMs generate MECE structures that are logically complete but strategically neutral. A MECE decomposition of ``how to improve hotel guest experience'' might produce: (1) pre-arrival, (2) arrival, (3) in-stay, (4) departure, (5) post-stay. This is MECE. It is also obvious, unpersuasive, and indistinguishable from every other hotel strategy presentation. The human must impose a \emph{point of view} on the MECE structure---something the LLM will not do unless explicitly instructed to.
+\end{alertbox}
+
+\subsubsection{Counterargument testing}
+
+This is the single most underrated AI application in the Launchpad. Before committing to a Big Idea, ask the LLM to attack it.
+
+\begin{keybox}[AI PROMPT: COUNTERARGUMENT STRESS TEST]
+\texttt{My Big Idea is: ``[statement].'' Play the role of a hostile but intelligent audience member. Generate the 7 strongest counterarguments against this thesis. For each, indicate whether it undermines the thesis entirely or merely requires a qualification. Then suggest how I could pre-empt each counterargument within the presentation.}
+\end{keybox}
+
+This exercise, performed manually, takes 45 minutes in a workshop. With an LLM, it takes 90 seconds. More importantly, the LLM is less polite than colleagues---it will surface the uncomfortable objections that workshop participants avoid raising because of social dynamics.\endnote{Janis, Irving L., \emph{Groupthink: Psychological Studies of Policy Decisions and Fiascoes}, 2nd edition, Houghton Mifflin, 1982. Janis documented the tendency of cohesive groups to suppress dissent. LLMs, lacking social incentives, do not exhibit this pattern and can serve as an effective ``devil's advocate'' in the absence of a genuine one.}
+
+\subsubsection{Audience analysis}
+
+Before writing a word, ask the LLM to model your audience:
+
+\begin{itemize}
+  \item What does this audience already believe about the topic?
+  \item What would make them resistant to my thesis?
+  \item What evidence format do they trust? (Data? Case studies? Analogies? Expert authority?)
+  \item What are they afraid of? What do they want?
+\end{itemize}
+
+The LLM's output will be generic---it does not know your specific audience members. But it forces you to \emph{answer} these questions explicitly, which most presenters never do. The act of reviewing and correcting the LLM's audience model produces better audience awareness than starting from scratch.\endnote{Kahneman, Daniel, \emph{Thinking, Fast and Slow}, Farrar, Straus and Giroux, 2011. Kahneman's concept of ``anchoring'' applies: even an imperfect audience model from an LLM serves as an anchor that the practitioner adjusts, producing a final model that is closer to reality than one generated from an empty page.}
+
+% ============================================================================
+\subsection{AI in Phase 1: Block Level}
+
+\subsubsection{The ``AI as Architect'' pattern}
+
+After defining your Blocks, ask the LLM to critique the structure:
+
+\begin{keybox}[AI PROMPT: STRUCTURAL CRITIQUE]
+\texttt{Here are my presentation Blocks: [list]. My SCQA is: [SCQA]. Evaluate this structure for: (1) MECE compliance---do the Blocks overlap or leave gaps? (2) Logical flow---does the sequence make sense? (3) Audience alignment---given that my audience is [description], does this structure address their primary concerns? Be specific and harsh.}
+\end{keybox}
+
+The LLM will identify overlaps that the practitioner missed, suggest missing Blocks, and flag sequencing problems. It performs the Architect's diagnostic at machine speed.\endnote{Argote, Linda, \emph{Organizational Learning: Creating, Retaining and Transferring Knowledge}, 2nd edition, Springer, 2013. Argote's work on knowledge transfer supports the principle that external critique---whether from a colleague or an AI system---exposes blind spots that internal review cannot.}
+
+\subsubsection{The ``AI as Storyteller'' pattern}
+
+Ask the LLM to map the emotional arc:
+
+\texttt{``Given this Block structure, where should tension peak? Where should it resolve? Suggest where to place a story, a surprising statistic, or a provocative question to maintain audience engagement.''}
+
+The LLM's suggestions will be competent but predictable. The human Storyteller's job is to select the \emph{unexpected} tension points---the ones that create genuine surprise, not formulaic suspense.
+
+\subsubsection{The ``AI as Designer'' pattern}
+
+Describe your data to the LLM and ask for visualisation recommendations:
+
+\texttt{``I have data showing [description]. My audience is [description]. The insight I want them to take away is [insight]. Recommend the best chart type and explain why.''}
+
+This is one of the highest-value AI applications in the process. Most presenters default to bar charts regardless of the data relationship. An LLM trained on data visualisation principles will recommend slope charts for change-over-time comparisons, scatter plots for correlations, and treemaps for hierarchical composition---chart types that most non-designers never consider.\endnote{Knaflic, Cole Nussbaumer, \emph{Storytelling with Data}, op.\ cit. Knaflic's taxonomy of chart types by analytical purpose (comparison, composition, distribution, relationship) is the framework that LLMs most commonly apply when recommending visualisation approaches.}
+
+% ============================================================================
+\subsection{AI in Phase 2: Loop Level}
+
+\subsubsection{Action title drafting}
+
+Phase 2 is where action titles are first drafted---and where LLMs save the most time per unit of effort. Ask the LLM to convert topic titles to action titles:
+
+\texttt{``Convert these topic titles into action titles (complete sentences with a subject, verb, and object that state the slide's argument): [list of topic titles].''}
+
+The LLM will produce first-draft action titles that are 70--80\% ready. The human refines: sharpening the verb, adding specificity, ensuring each title advances the argument.\endnote{Zelazny, Gene, \emph{Say It with Presentations}, op.\ cit. The conversion from topic titles to action titles is the single most time-consuming writing task in the Storymakers process, making it the highest-ROI application of AI assistance at the Loop level.}
+
+\subsubsection{Loop sequencing}
+
+Ask the LLM to suggest alternative sequences for the Loops within a Block:
+
+\texttt{``Here are 5 Loops within my [Block name] Block: [list with brief descriptions]. Suggest 3 different sequences and explain the rhetorical effect of each.''}
+
+This produces options the practitioner would not have considered. The human selects based on audience knowledge: which sequence matches the audience's current mental model? Which sequence creates the most productive tension?
+
+\subsubsection{Metaphor generation}
+
+When a concept is abstract, ask the LLM for metaphors:
+
+\texttt{``Generate 10 metaphors for [abstract concept]. The audience is [description]. Avoid clich\'{e}s. Prefer metaphors from domains the audience knows well.''}
+
+LLMs produce metaphors at volume. Most will be mediocre. Two or three will be genuinely useful. The human's job is curation, not creation.\endnote{Lakoff, George and Johnson, Mark, \emph{Metaphors We Live By}, University of Chicago Press, 1980. Lakoff and Johnson established that metaphors are not decorative but structural---they shape how the audience conceptualises the argument. A well-chosen metaphor does more persuasive work than three slides of data.}
+
+% ============================================================================
+\subsection{AI in Phase 3: Slide Level}
+
+At the slide level, AI assists with:
+
+\begin{itemize}
+  \item \textbf{Copy editing}: Grammar, clarity, concision. LLMs are excellent copy editors.
+  \item \textbf{Consistency checking}: ``Do all my action titles follow the same grammatical structure?''
+  \item \textbf{Redundancy detection}: ``Which slides make the same argument? Where do I repeat myself?''
+  \item \textbf{Transition writing}: ``Write a one-sentence transition from [Slide A argument] to [Slide B argument].''
+\end{itemize}
+
+\begin{insightbox}[The Diminishing Returns of AI Across Phases]
+AI's value decreases as you move from Phase 0 to Phase 3. In Phase 0, AI is a creative multiplier---generating options you would not have considered. In Phase 3, AI is an editorial assistant---catching errors and polishing prose. The strategic value is concentrated in the early phases. Most practitioners make the mistake of using AI primarily in Phase 3 (formatting, editing) and manually grinding through Phase 0 (ideation, structuring). Invert this.
+\end{insightbox}
+
+% ============================================================================
+\subsection{What AI cannot do}
+
+The preceding sections describe what AI accelerates. This section describes what it cannot do---not because of current limitations, but because of structural ones that will persist regardless of model capability.\endnote{Marcus, Gary and Davis, Ernest, \emph{Rebooting AI: Building Artificial Intelligence We Can Trust}, Pantheon, 2019. Marcus and Davis argue that LLMs lack grounded world models, causal reasoning, and social awareness---capabilities essential to high-stakes communication decisions.}
+
+\subsubsection{Feel the room}
+
+A presentation exists in a room. The room has a temperature---literal and figurative. The CFO is distracted. The CEO just received bad news. The audience has been in back-to-back meetings since 8am. The person who controls the budget is sitting in the back row with their arms crossed.
+
+No LLM can read these signals. No LLM can suggest ``skip slides 14--18 because the room is losing energy'' or ``pause here because the CEO just looked up from their phone.'' The ability to adapt in real time to audience state is a fundamentally human capability.\endnote{Mehrabian, Albert, \emph{Silent Messages: Implicit Communication of Emotions and Attitudes}, Wadsworth, 1981. Mehrabian's research on non-verbal communication channels---often misquoted as the ``7--38--55 rule''---establishes that audience reception depends heavily on non-verbal cues that no text-based AI system can access.}
+
+\subsubsection{Know what the audience cares about}
+
+An LLM can model a generic audience. It cannot model \emph{your} audience. It does not know that the VP of Operations is politically aligned with the current vendor and will resist any proposal that implies changing suppliers. It does not know that the board rejected a similar initiative eighteen months ago and has institutional scar tissue. It does not know that the company's real strategy---the one that is never written down---prioritises cost reduction over innovation this quarter.\endnote{Schein, Edgar H., \emph{Organizational Culture and Leadership}, 5th edition, Wiley, 2017. Schein's model of organisational culture distinguishes between ``espoused values'' (what the organisation says it cares about) and ``underlying assumptions'' (what it actually acts on). LLMs can model the former but have no access to the latter.}
+
+These are the facts that determine whether a presentation succeeds or fails. No LLM has access to them.
+
+\subsubsection{Make judgment calls on emphasis}
+
+A 30-minute presentation can make 3--4 points effectively. A draft may contain 12 good points. The human must decide which 3--4 to emphasise and which 8--9 to subordinate or cut. This decision depends on: the audience's current mental model, the political dynamics in the room, the strategic priority of the moment, and the presenter's own credibility on each topic.
+
+An LLM can rank points by logical importance. It cannot rank them by strategic importance---because strategic importance is context-dependent, audience-dependent, and often counter-intuitive.\endnote{Rosling, Hans, Rosling, Ola, and R\"{o}nnlund, Anna Rosling, \emph{Factfulness: Ten Reasons We're Wrong About the World---and Why Things Are Better Than You Think}, Flatiron Books, 2018. Rosling's work demonstrates that the most impactful communication often de-emphasises the data that is most ``interesting'' and emphasises the data that is most decision-relevant---a judgment call that requires deep audience understanding.}
+
+\subsubsection{Replace rehearsal}
+
+AI can generate speaker notes. It cannot replace the act of standing in a room and speaking the words aloud. Rehearsal reveals: which transitions feel awkward, which slides take longer than expected, which arguments require more explanation than the slide provides, and which moments need silence instead of words.\endnote{Gallo, Carmine, \emph{Talk Like TED: The 9 Public-Speaking Secrets of the World's Top Minds}, St.\ Martin's Press, 2014. Gallo's research found that the highest-rated TED speakers rehearsed an average of 200 hours before their talks. The relationship between rehearsal time and audience rating was approximately linear up to 40 hours and showed diminishing returns thereafter.}
+
+\begin{alertbox}[THE DANGER OF AI-GENERATED PRESENTATIONS]
+An AI-generated presentation without human judgment is worse than no presentation at all. It will be fluent, structured, and entirely generic. The audience will recognise it instantly---not because they can identify AI prose, but because it will lack the specificity, the conviction, and the audience awareness that only comes from a human who has done the work of understanding the room. A mediocre human-crafted presentation outperforms a polished AI-generated one because the audience trusts the human's judgment, not the machine's grammar.\endnote{Epley, Nicholas, Waytz, Adam, and Cacioppo, John T., ``On Seeing Human: A Three-Factor Theory of Anthropomorphism,'' \emph{Psychological Review}, 2007. The research establishes that audiences assess communication credibility through perceived intentionality---the sense that a communicator has made deliberate choices. AI-generated content, lacking genuine intentionality, fails this test when the audience perceives it.}
+\end{alertbox}
+
+% ============================================================================
+\subsection{The practical workflow}
+
+Integrating AI into the Storymakers process is not about replacing steps. It is about changing the \emph{mode} of each step from creation to curation.
+
+\begin{table}[H]
+\centering
+\small
+\rowcolors{2}{altrow}{white}
+\begin{tabularx}{\textwidth}{>{\bfseries\color{heading}}l X X}
+\toprule
+\rowcolor{tableheader}
+\textcolor{white}{\textbf{Step}} & \textcolor{white}{\textbf{Without AI}} & \textcolor{white}{\textbf{With AI}} \\
+\midrule
+SCQA & Write 2--3 drafts (2 hours) & Generate 12 candidates, select and refine (30 min) \\
+Pillars & Brainstorm, test for MECE (1 hour) & Generate 5 MECE options, stress-test top 2 (20 min) \\
+Counterarguments & Workshop with 3--5 people (2 hours) & Generate 10 objections, rank by severity (15 min) \\
+Action titles & Write each title manually (3 hours) & Convert topic titles to action titles, refine (45 min) \\
+Storyboard & Sketch data vis options (2 hours) & Describe data, get chart recommendations (30 min) \\
+Polish & Manual copy-editing (2 hours) & AI copy edit + consistency check (30 min) \\
+\bottomrule
+\end{tabularx}
+\caption{Time savings from AI integration across the Storymakers process. Total reduction: approximately 60\% of production time, with no reduction in quality gate requirements.}
+\label{tab:ai-time-savings}
+\end{table}
+
+\begin{diagnosisbox}
+\textbf{The 80/20 Reality.} AI performs 80\% of the generative work. The human performs 20\% of the judgment work. But that 20\% is not optional. It is not the finishing touch. It is the entire difference between a presentation that changes minds and a document that fills a slot on an agenda. AI is the engine. The human is the steering wheel. An engine without a steering wheel is not a car. It is a hazard.
+\end{diagnosisbox}
+
+% ============================================================================
+\subsection{The warning: AI without judgment}
+
+The accessibility of LLMs has created a new failure mode that did not exist five years ago: the fully AI-generated presentation. A practitioner opens ChatGPT, types ``create a 20-slide presentation about [topic],'' and receives a complete slide outline in 30 seconds. The outline is fluent, structured, and entirely generic. It commits every sin in Chapter 12: topic titles, no SCQA, no audience analysis, no emotional arc, no specific evidence.
+
+The danger is not that these presentations are obviously bad. The danger is that they are \emph{almost good enough}. They pass the low bar of ``I have a deck for the meeting.'' They fail the high bar of ``I changed someone's mind.'' The gap between those two bars is the gap between a career that plateaus and a career that advances.\endnote{Newport, Cal, \emph{Deep Work: Rules for Focused Success in a Distracted World}, Grand Central Publishing, 2016. Newport argues that rare and valuable skills---like constructing a genuinely persuasive argument---become \emph{more} valuable as routine cognitive work is automated. AI raises the floor but does not raise the ceiling.}
+
+\begin{alertbox}[THE FLOOR AND THE CEILING]
+AI raises the floor of presentation quality: the worst AI-generated deck is better than the worst human-generated deck. But AI does not raise the ceiling. The best presentations---the ones that change decisions, win funding, shift strategy---still require human judgment, audience knowledge, and the courage to make unpopular arguments. If you use AI to reach the floor faster, you have saved time. If you use AI to \emph{replace} the work of reaching the ceiling, you have saved time and lost impact.
+\end{alertbox}
+
+The Storymakers process uses AI as an accelerator within a human-judged framework. Every AI output passes through a human quality gate before it enters the final product. The gates are not optional. They are the method.
+
+\pullquote{The question is not whether to use AI in your presentation process. The question is whether you have the discipline to use it for the 80\% it is good at and the courage to do the 20\% it cannot.}{Storymakers Method}
+
+\clearpage

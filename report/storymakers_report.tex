@@ -1,0 +1,306 @@
+% ============================================================================
+% THE STORYMAKERS METHOD — Anlak Strategic Intelligence Report
+% "The Science of Presentations That Move People to Action"
+% ============================================================================
+\documentclass[11pt,a4paper,twoside]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[sfdefault,light]{FiraSans}
+\usepackage{FiraMono}
+\usepackage{microtype}
+\usepackage{eurosym}
+\providecommand{\EUR}[1]{\euro#1}
+\usepackage{amsmath,amssymb}
+\usepackage{xurl}
+\emergencystretch=3em
+
+\usepackage{endnotes}
+\renewcommand{\notesname}{}
+\renewcommand{\enoteformat}{\noindent\theenmark.\ }
+\renewcommand{\enotesize}{\small}
+
+\usepackage[a4paper,top=2.5cm,bottom=2.5cm,inner=2.8cm,outer=3cm,headheight=15pt]{geometry}
+
+\usepackage{xcolor}
+\definecolor{textprimary}{HTML}{1A1F2B}
+\definecolor{heading}{HTML}{0A1628}
+\definecolor{signalred}{HTML}{C8102E}
+\definecolor{techteal}{HTML}{82C4CB}
+\definecolor{coral}{HTML}{E8A090}
+\definecolor{slate}{HTML}{5C6B7A}
+\definecolor{tableheader}{HTML}{0F2137}
+\definecolor{boxbg}{HTML}{F0F2F5}
+\definecolor{altrow}{HTML}{F7F8FA}
+\definecolor{rulecolor}{HTML}{D0D5DD}
+\definecolor{midblue}{HTML}{2C5F8A}
+\definecolor{alertbg}{HTML}{FEF3F2}
+\definecolor{linkblue}{HTML}{1A5AAB}
+
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows.meta,positioning}
+
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{colortbl}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE]{\small\color{slate}The Storymakers Method}
+\fancyhead[RO]{\small\color{slate}Anlak Strategic Intelligence | April 2026}
+\fancyfoot[LE,RO]{\small\thepage}
+\fancyfoot[C]{\small\color{slate}Anlak Strategic Intelligence}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{rulecolor}\leaders\hrule height \headrulewidth\hfill}}
+
+\usepackage{titlesec}
+\titleformat{\section}
+  {\normalfont\fontsize{18}{22}\selectfont\bfseries\color{heading}}
+  {\thesection}{1em}{}[\vspace{2pt}{\color{techteal}\rule{\textwidth}{1.5pt}}]
+\titlespacing*{\section}{0pt}{28pt}{12pt}
+\titleformat{\subsection}
+  {\normalfont\fontsize{14}{17}\selectfont\bfseries\color{heading}}
+  {\thesubsection}{1em}{}
+\titlespacing*{\subsection}{0pt}{20pt}{8pt}
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries\color{heading}}
+  {\thesubsubsection}{1em}{}
+
+\usepackage[colorlinks=true,linkcolor=heading,urlcolor=linkblue]{hyperref}
+
+\usepackage{enumitem}
+\setlist{itemsep=3pt,topsep=6pt}
+
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+
+\newtcolorbox{insightbox}[1][KEY INSIGHT]{
+  enhanced, breakable, colback=boxbg, colframe=boxbg, boxrule=0pt,
+  borderline west={3pt}{0pt}{techteal},
+  left=12pt, right=12pt, top=10pt, bottom=10pt,
+  before skip=12pt, after skip=12pt, fontupper=\small,
+  title={\color{techteal}\bfseries\small #1},
+  attach boxed title to top left={yshift=-2mm,xshift=5mm},
+  boxed title style={colback=boxbg,colframe=boxbg,boxrule=0pt}
+}
+
+\newtcolorbox{diagnosisbox}[1][]{
+  enhanced, breakable, colback=boxbg, colframe=boxbg, boxrule=0pt,
+  borderline north={2pt}{0pt}{heading},
+  left=12pt, right=12pt, top=10pt, bottom=10pt,
+  before skip=12pt, after skip=12pt, fontupper=\small
+}
+
+\newtcolorbox{keybox}[1][]{
+  enhanced, breakable, colback=boxbg, colframe=boxbg, boxrule=0pt,
+  borderline west={3pt}{0pt}{techteal},
+  left=12pt, right=12pt, top=10pt, bottom=10pt,
+  before skip=12pt, after skip=12pt, fontupper=\small,
+  title={\color{techteal}\bfseries\small #1},
+  attach boxed title to top left={yshift=-2mm,xshift=5mm},
+  boxed title style={colback=boxbg,colframe=boxbg,boxrule=0pt}
+}
+
+\newtcolorbox{alertbox}[1][]{
+  enhanced, breakable, colback=alertbg, colframe=alertbg, boxrule=0pt,
+  borderline west={3pt}{0pt}{signalred},
+  left=12pt, right=12pt, top=10pt, bottom=10pt,
+  before skip=12pt, after skip=12pt, fontupper=\small,
+  title={\color{signalred}\bfseries\small #1},
+  attach boxed title to top left={yshift=-2mm,xshift=5mm},
+  boxed title style={colback=alertbg,colframe=alertbg,boxrule=0pt}
+}
+
+\newtcolorbox{thesisbox}[1][Core Thesis]{
+  enhanced, breakable, colback=boxbg, colframe=heading, boxrule=1.5pt,
+  left=12pt, right=12pt, top=10pt, bottom=10pt,
+  before skip=12pt, after skip=12pt,
+  title={\color{heading}\bfseries #1},
+  attach boxed title to top left={yshift=-2mm,xshift=5mm},
+  boxed title style={colback=boxbg,colframe=heading,boxrule=0.5pt}
+}
+
+\newcommand{\pullquote}[2]{%
+  \begin{tcolorbox}[enhanced, colback=white, colframe=white, boxrule=0pt,
+    borderline west={3pt}{0pt}{techteal},
+    left=14pt, right=14pt, top=8pt, bottom=8pt,
+    before skip=16pt, after skip=16pt]
+  {\fontsize{16}{20}\selectfont\itshape\color{heading}#1}\\[6pt]
+  \hfill{\small\color{slate}--- #2}
+  \end{tcolorbox}
+}
+
+% --- Screenshot/figure macro ---
+\newcommand{\sourcefig}[3][0.85]{%
+  \vspace{4pt}\noindent
+  \IfFileExists{#2}{\includegraphics[width=#1\textwidth]{#2}}%
+  {\fbox{\small Missing: #2}}\\[2pt]
+  {\fontsize{8}{10}\selectfont\color{slate}#3}
+  \vspace{6pt}
+}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\usepackage{float}
+\usepackage{setspace}
+\setstretch{1.3}
+\raggedbottom
+\color{textprimary}
+
+\usepackage{tocloft}
+\renewcommand{\cftsecfont}{\bfseries\color{heading}}
+\renewcommand{\cftsubsecfont}{\color{textprimary}}
+\renewcommand{\cftsecleader}{\color{rulecolor}\cftdotfill{\cftdotsep}}
+
+% ============================================================================
+\begin{document}
+
+% === COVER ===
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture,overlay]
+  \fill[heading] (current page.north west) rectangle ([yshift=-10cm]current page.north east);
+  \fill[techteal] ([yshift=-10cm]current page.north west) rectangle ([yshift=-10.2cm]current page.north east);
+
+  \node[anchor=north west, text=white, font=\fontsize{30}{34}\selectfont\bfseries, text width=14cm]
+    at ([xshift=3cm,yshift=-2cm]current page.north west)
+    {The Storymakers Method};
+
+  \node[anchor=north west, text=signalred, font=\fontsize{12}{16}\selectfont\bfseries, text width=14cm]
+    at ([xshift=3cm,yshift=-4.5cm]current page.north west)
+    {The Science of Presentations\\That Move People to Action};
+
+  \node[anchor=north west, text=white, font=\fontsize{10}{13}\selectfont, text width=14cm]
+    at ([xshift=3cm,yshift=-6.5cm]current page.north west)
+    {Structure $\cdot$ Narrative $\cdot$ Design $\cdot$ The 10-Step Process};
+
+  \node[anchor=north west, text=white!80, font=\small]
+    at ([xshift=3cm,yshift=-7.5cm]current page.north west)
+    {April 2026};
+
+  \node[anchor=north west, text=textprimary, font=\normalsize, text width=14cm]
+    at ([xshift=3cm,yshift=-12cm]current page.north west)
+    {30 million PowerPoints are created every day. 91\% of audiences admit to daydreaming.
+    The problem is not the software. It is the method --- or the absence of one.};
+
+  \node[anchor=north west, text=heading, font=\fontsize{13}{16}\selectfont\bfseries, text width=14cm]
+    at ([xshift=3cm,yshift=-14.5cm]current page.north west)
+    {Structure the logic. Craft the story. Design the signal.\\[6pt]
+    In that order. Every time.};
+
+  \node[anchor=north west, text=slate, font=\small, text width=14cm]
+    at ([xshift=3cm,yshift=-18cm]current page.north west)
+    {Based on the work of Barbara Minto, Nancy Duarte, Edward Tufte,\\
+    Aswath Damodaran, and 20 years of consulting practice.};
+\end{tikzpicture}
+
+\clearpage
+\tableofcontents
+\clearpage
+
+% === CHAPTERS ===
+\input{ch01-the-problem}
+\clearpage
+\input{ch02-why-presentations-fail}
+\clearpage
+\input{ch03-three-archetypes}
+\clearpage
+\input{ch04-the-launchpad}
+\clearpage
+\input{ch05-three-layers}
+\clearpage
+\input{ch06-the-architect}
+\clearpage
+\input{ch07-the-storyteller}
+\clearpage
+\input{ch08-the-designer}
+\clearpage
+\input{ch09-ten-steps}
+\clearpage
+\input{ch10-case-studies}
+\clearpage
+\input{ch11-ai-accelerator}
+\clearpage
+\input{ch12-common-mistakes}
+\clearpage
+
+% === ENDNOTES ===
+\section*{Sources \& References}
+\addcontentsline{toc}{section}{Sources \& References}
+\theendnotes
+
+\clearpage
+
+% === HONEST CLOSING ===
+\thispagestyle{empty}
+\vspace*{4cm}
+
+\begin{center}
+{\fontsize{14}{18}\selectfont\color{heading}\itshape
+
+30 million presentations created today.\\[8pt]
+Most will be forgotten before the meeting ends.\\[8pt]
+A few will change minds, budgets, and careers.\\[20pt]
+
+}
+
+{\fontsize{11}{15}\selectfont\color{textprimary}
+
+The difference is never the software.\\[6pt]
+It is never the template.\\[6pt]
+It is the thinking that happens before the first slide is created.\\[12pt]
+
+}
+
+{\fontsize{12}{16}\selectfont\color{heading}\bfseries
+
+Structure the logic. Craft the story. Design the signal.\\[4pt]
+In that order. Every time.\\[20pt]
+
+}
+
+{\fontsize{11}{15}\selectfont\color{slate}
+This is the Storymakers Method.\\[4pt]
+Now go build something worth remembering.
+}
+
+\end{center}
+
+\clearpage
+
+% === BACK COVER ===
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture,overlay]
+  \fill[heading] (current page.north west) rectangle ([yshift=-7cm]current page.north east);
+  \fill[techteal] ([yshift=-7cm]current page.north west) rectangle ([yshift=-7.15cm]current page.north east);
+
+  \node[anchor=north west, text=white, font=\fontsize{24}{28}\selectfont\bfseries, text width=14cm]
+    at ([xshift=3cm,yshift=-2cm]current page.north west)
+    {The Storymakers Method};
+
+  \node[anchor=north west, text=techteal, font=\fontsize{11}{14}\selectfont\bfseries, text width=14cm]
+    at ([xshift=3cm,yshift=-4cm]current page.north west)
+    {Anlak Strategic Intelligence | April 2026};
+
+  \node[anchor=north west, text=heading, font=\fontsize{13}{17}\selectfont, text width=13cm]
+    at ([xshift=3cm,yshift=-9cm]current page.north west)
+    {\textit{The person who tells the best story wins.\\[4pt]
+    Not because stories are more true than data.\\[4pt]
+    But because stories are how humans decide.\\[4pt]
+    This report teaches you to build both:\\
+    the rigorous argument and the compelling narrative.\\[4pt]
+    Structure, story, signal. In that order.}};
+
+  \node[anchor=south west, text=textprimary, font=\small, text width=10cm]
+    at ([xshift=3cm,yshift=1.5cm]current page.south west)
+    {\textbf{Anlak Strategic Intelligence} $\cdot$ hello@anlak.es};
+
+  \node[anchor=south east, text=slate, font=\fontsize{7}{9}\selectfont, text width=8cm, align=right]
+    at ([xshift=-2.5cm,yshift=1.5cm]current page.south east)
+    {\copyright\ 2026 Anlak. All rights reserved.};
+\end{tikzpicture}
+
+\end{document}
